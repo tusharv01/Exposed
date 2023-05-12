@@ -23,3 +23,14 @@ gradlePlugin {
         }
     }
 }
+CREATE TABLE parent (
+  id SERIAL PRIMARY KEY,
+  name TEXT
+);
+
+CREATE TABLE child (
+  id SERIAL PRIMARY KEY,
+  parent_id INTEGER REFERENCES parent(id) ON DELETE SET DEFAULT,
+  name TEXT
+);
+
